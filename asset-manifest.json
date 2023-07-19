@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/juanchopatrik/TodoAppReact/static/css/main.b70adc34.css",
+    "main.js": "/juanchopatrik/TodoAppReact/static/js/main.1f684e3b.js",
+    "index.html": "/juanchopatrik/TodoAppReact/index.html",
+    "static/media/delete.svg": "/juanchopatrik/TodoAppReact/static/media/delete.f8e04b980f4a347b447ca1bb82768b46.svg",
+    "static/media/check.svg": "/juanchopatrik/TodoAppReact/static/media/check.fa4fb594b16385306a04b9c87c0feb55.svg",
+    "main.b70adc34.css.map": "/juanchopatrik/TodoAppReact/static/css/main.b70adc34.css.map",
+    "main.1f684e3b.js.map": "/juanchopatrik/TodoAppReact/static/js/main.1f684e3b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b70adc34.css",
+    "static/js/main.1f684e3b.js"
+  ]
+}
