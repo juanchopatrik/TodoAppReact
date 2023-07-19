@@ -1,5 +1,6 @@
 import React from 'react';
 import { AppUI } from './AppUI';
+<<<<<<< HEAD
 import { useLocalStorage } from './useLocalStorage';
 
 // localStorage.removeItem('TODOS_V1');
@@ -76,6 +77,16 @@ function App() {
       deleteTodo={deleteTodo}
     />
   );
+=======
+// import { useLocalStorage } from './useLocalStorage';
+import { TodoProvider } from '../TodoContext';
+
+function App() {
+  return (
+    <TodoProvider>
+      <AppUI />
+    </TodoProvider>);
+>>>>>>> finishin-formulario
 }
 
 export default App;

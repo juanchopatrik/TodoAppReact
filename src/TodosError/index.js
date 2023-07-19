@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 
 function TodosError() {
@@ -7,3 +8,14 @@ function TodosError() {
 }
 
 export { TodosError };
+=======
+import React from 'react';
+
+function TodosError() {
+  return (
+    <p>Error...</p>
+  );
+}
+
+export { TodosError };
+>>>>>>> finishin-formulario
