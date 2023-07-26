@@ -1,18 +1,23 @@
 import React from "react";
 import { useLocalStorage } from './useLocalStorage';
 
-const defaultTodos = [
-    { text: 'Cortar cebolla', completed: true },
-    { text: 'Tomar el Curso de Intro a React.js', completed: false },
-    { text: 'Llorar con la Llorona', completed: false },
-    { text: 'LALALALALA', completed: false },
-    { text: 'Usar estados derivados', completed: true },
-];
+// const defaultTodos = [
+//     { text: 'Cortar cebolla', completed: true },
+//     { text: 'Tomar el Curso de Intro a React.js', completed: false },
+//     { text: 'Llorar con la Llorona', completed: false },
+//     { text: 'LALALALALA', completed: false },
+//     { text: 'Usar estados derivados', completed: true },
+// ];
 const TodoContext = React.createContext();
 
-function TodoProvider({ children }) {
+function useTodos() {
 
-    const { item: todos, saveItem: saveTodos, loading, error } = useLocalStorage('TODOS_V1', []);
+    const {
+        item: todos
+        , saveItem: saveTodos
+        , loading
+        , error
+    } = useLocalStorage('TODOS_V1', []);
     const [searchValue, setSearchValue] = React.useState('');
     const [openModal, setOpenModal] = React.useState(false);
 
@@ -58,25 +63,19 @@ function TodoProvider({ children }) {
         saveTodos(newTodos);
     };
 
-    return (
-        <TodoContext.Provider value={{
+    return {
 
-            setOpenModal,
-            openModal,
-            loading,
-            error,
-            completedTodos,
-            totalTodos,
-            searchValue,
-            setSearchValue,
-            searchedTodos,
-            completeTodo,
-            deleteTodo,
-            addTodo
-        }}>
-            {children}
-        </TodoContext.Provider>
-    )
+        setOpenModal, openModal,
+        loading,
+        error,
+        completedTodos,
+        totalTodos,
+        searchValue, setSearchValue,
+        searchedTodos,
+        completeTodo,
+        deleteTodo,
+        addTodo
+    }
 }
 
-export { TodoContext, TodoProvider }
+export { useTodos }
