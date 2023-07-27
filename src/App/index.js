@@ -1,34 +1,32 @@
-
 import React from 'react';
-import { TodoCounter } from '../TodoCounter';
+import { useTodos } from './useTodos';
 import { TodoHeader } from '../TodoHeader';
+import { TodoCounter } from '../TodoCounter';
 import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
 import { TodoItem } from '../TodoItem';
-import { TodosLoading } from '../TodosLoading';
 import { TodosError } from '../TodosError';
+import { TodosLoading } from '../TodosLoading';
 import { EmptyTodos } from '../EmptyTodos';
+import { TodoForm } from '../TodoForm';
 import { CreateTodoButton } from '../CreateTodoButton';
 import { Modal } from '../Modal';
-import { TodoForm } from '../TodoForm';
-import { useTodos } from './useTodos';
-import { useLocalStorage } from './useLocalStorage';
 
 function App() {
   const {
-    loading,
     error,
+    loading,
     searchedTodos,
     completeTodo,
     deleteTodo,
-    setOpenModal,
     openModal,
+    setOpenModal,
     totalTodos,
     completedTodos,
     searchValue,
     setSearchValue,
     addTodo,
-  } = useTodos()
+  } = useTodos();
 
   return (
     <>
@@ -43,20 +41,14 @@ function App() {
         />
       </TodoHeader>
 
-      <TodoList>
-        {loading && (
-          <>
-            <TodosLoading />
-            <TodosLoading />
-            <TodosLoading />
-            <TodosLoading />
-            <TodosLoading />
-          </>
-        )}
-        {error && <TodosError />}
-        {(!loading && searchedTodos.length === 0) && <EmptyTodos />}
-
-        {searchedTodos.map(todo => (
+      <TodoList
+        error={error}
+        loading={loading}
+        searchedTodos={searchedTodos}
+        onError={() => <TodosError />}
+        onLoading={() => <TodosLoading />}
+        onEmptyTodos={() => <EmptyTodos />}
+        render={todo => (
           <TodoItem
             key={todo.text}
             text={todo.text}
@@ -64,8 +56,8 @@ function App() {
             onComplete={() => completeTodo(todo.text)}
             onDelete={() => deleteTodo(todo.text)}
           />
-        ))}
-      </TodoList>
+        )}
+      />
 
       <CreateTodoButton
         setOpenModal={setOpenModal}

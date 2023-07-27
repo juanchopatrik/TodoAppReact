@@ -1,14 +1,6 @@
 import React from "react";
 import { useLocalStorage } from './useLocalStorage';
 
-// const defaultTodos = [
-//     { text: 'Cortar cebolla', completed: true },
-//     { text: 'Tomar el Curso de Intro a React.js', completed: false },
-//     { text: 'Llorar con la Llorona', completed: false },
-//     { text: 'LALALALALA', completed: false },
-//     { text: 'Usar estados derivados', completed: true },
-// ];
-const TodoContext = React.createContext();
 
 function useTodos() {
 
