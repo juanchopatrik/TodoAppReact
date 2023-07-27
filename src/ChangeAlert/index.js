@@ -4,11 +4,16 @@ import { withStorageListener } from "./withStorageListener";
 function ChangeAlert({ show, toggleShow }) {
     if (show) {
         return (
-            <div>
-                <p> hubo cambios</p>
-                <button onClick={toggleShow}>
-                    volver a cargar los cambios
-                </button>
+            <div className="ChangeAlert-bg">
+                <div className="ChangeAlert-container">
+                    <p>Parece que cambiaste tus TODOs en otra pestaña o ventana del navegador.</p>
+                    <p>¿Quieres sincronizar tus TODOs?</p>
+                    <button
+                        className="TodoForm-button TodoForm-button--add"
+                        onClick={toggleShow}>
+                        Yes
+                    </button>
+                </div>
             </div>
         )
     } else {
